@@ -42,12 +42,12 @@ const mapStateToProps = (state: AppDispatchProps) => ({
   count: state.count
 });
 
-// const increment = () => ({ type: "ADD" });
-// const decrement = () => ({ type: "DELETE" });
+const increment = () => ({ type: "ADD" });
+const decrement = () => ({ type: "DELETE" });
 
-const mapDispatchToProps = () => ({
-  incrementCount: () => ({ type: "ADD" }),
-  decreaseCount: () => ({ type: "DELETE" })
-});
+const mapDispatchToProps = {
+  incrementCount: increment,
+  decreaseCount: decrement
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
