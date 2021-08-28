@@ -1,15 +1,17 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { increment, decrement } from "./reducer/actions";
+import { CounterState } from "./reducer/state";
 import "./styles.css";
 
 type Func = () => void;
 
-interface AppStateProps {
+interface AppDispatchProps {
   incrementCount: Func;
   decreaseCount: Func;
 }
 
-interface AppDispatchProps {
+interface AppStateProps {
   count: number;
 }
 
@@ -28,7 +30,7 @@ const App: React.FC<AppProps> = ({
   return (
     <div className="App">
       <h1>{name}</h1>
-      <p className="count">{count || 0}</p>
+      <p className="count">{count}</p>
       <button className="delete" onClick={decreaseCount}>
         Убрать
       </button>
@@ -38,14 +40,11 @@ const App: React.FC<AppProps> = ({
     </div>
   );
 };
-const mapStateToProps = (state: AppDispatchProps) => ({
+const mapStateToProps = (state: CounterState): AppStateProps => ({
   count: state.count
 });
 
-const increment = () => ({ type: "ADD" });
-const decrement = () => ({ type: "DELETE" });
-
-const mapDispatchToProps = {
+const mapDispatchToProps: AppDispatchProps = {
   incrementCount: increment,
   decreaseCount: decrement
 };
