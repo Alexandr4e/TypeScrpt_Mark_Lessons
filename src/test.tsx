@@ -46,7 +46,7 @@ interface PropsType {
   prop2: string;
 }
 
-function getProps(overrides: Partial<PropsType>): PropsType {
+function getProps(overrides?: Partial<PropsType> | null): PropsType {
   return {
     prop1: "value1",
     prop2: "value2",
@@ -58,3 +58,7 @@ function getProps(overrides: Partial<PropsType>): PropsType {
 getProps({
   prop2: "nonDefaultValue"
 });
+
+getProps({});
+getProps();
+getProps(null);
