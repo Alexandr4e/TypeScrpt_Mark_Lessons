@@ -7,7 +7,7 @@ const rootElement = document.getElementById("root");
 
 render(
   <Provider store={store}>
-    <App name="fucking Counter" />
+    <App name="Awesome counter" />
   </Provider>,
   rootElement
 );

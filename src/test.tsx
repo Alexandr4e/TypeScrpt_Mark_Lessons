@@ -1,12 +1,3 @@
-// const overrides = {
-//   prop1: "value1",
-//   prop2: "value2",
-//   prop3: 4,
-//   prop4: "value2",
-//   prop5: 32,
-//   prop6: "value2"
-// };
-
 // interface someProps {
 //   prop1: string;
 //   prop2: string;
@@ -21,16 +12,16 @@
 // }
 
 // type FunctionType = (
-//   arg: Partial<someProps>
+//   overrides: Partial<someProps>
 // ) => DefaultValue & Partial<someProps>;
 
-// function getProps(overrides: Partial<someProps>): FunctionType {
+// let getProps: FunctionType = (overrides) => {
 //   return {
 //     prop1: "value1",
 //     prop2: "value2",
 //     ...overrides
 //   };
-// }
+// };
 
 // // // Вызов
 // // getProps({
@@ -46,7 +37,7 @@ interface PropsType {
   prop2: string;
 }
 
-function getProps(overrides?: Partial<PropsType> | null): PropsType {
+function getProps(overrides?: Partial<PropsType>): PropsType {
   return {
     prop1: "value1",
     prop2: "value2",
@@ -61,4 +52,3 @@ getProps({
 
 getProps({});
 getProps();
-getProps(null);
